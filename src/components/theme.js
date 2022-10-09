@@ -41,7 +41,7 @@ export const theme = Object.freeze({
   },
   radii: {
     none: '0',
-    normal: '10px',
+    normal: '5px',
     round: '50%',
   },
   borders: {
@@ -51,6 +51,6 @@ export const theme = Object.freeze({
   },
   shadows: {
     boxShadow: '#ff9 0px 0px 20px',
-    tableShadow: ' 0 1px 1px #2d2020',
+    buttonsShadow: ' 0 1px 1px #2d2020',
   },
 });

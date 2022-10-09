@@ -1,26 +1,39 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import { StatList, StatItemsText, StatItems } from './Statistics.styled';
 
-const StatisticsList = ({ state, total, positivePercentage }) => {
-  const feedbackVariants = Object.keys(state);
+const Statistics = ({ options, total, positivePercentage }) => {
+  const feedbackVariants = Object.keys(options);
   return (
     <>
-      <h3>Statistics</h3>
-      <ul>
+      <StatList>
         {feedbackVariants.map(key => (
-          <li key={key}>
-            <p>
-              {key}: {state[key]}
-            </p>
-          </li>
+          <StatItems key={key}>
+            <StatItemsText>
+              {key}: {options[key]}
+            </StatItemsText>
+          </StatItems>
         ))}
-        <li>Total: {total()}</li>
-        <li>
-          Positive feedback:
-          {total() === 0 ? 0 : positivePercentage(total)}%
-        </li>
-      </ul>
+        <StatItems>
+          <StatItemsText>Total: {total()}</StatItemsText>
+        </StatItems>
+        <StatItems>
+          <StatItemsText>
+            Positive feedback:
+            {total() === 0 ? 0 : positivePercentage(total)}%
+          </StatItemsText>
+        </StatItems>
+      </StatList>
     </>
   );
 };
+Statistics.propTypes = {
+  options: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
+  total: PropTypes.func,
+  positivePercentage: PropTypes.func,
+};
 
-export default StatisticsList;
+export default Statistics;
