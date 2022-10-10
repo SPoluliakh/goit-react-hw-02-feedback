@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Section from '../StatisticsSection';
-
-// import Statistics from '../Statistic';
-// import FeedbackOptions from '../FeedbackButtons';
-// import { Box } from '../../Box';
+import Statistics from '../Statistic';
+import FeedbackOptions from '../FeedbackButtons';
+import { Box } from '../../Box';
+import { StatTitle, StatText } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -35,31 +35,24 @@ export class App extends Component {
 
   render() {
     return (
-      <Section
-        title="Plese leave feedback"
-        options={this.state}
-        onKlick={this.leaveFeedbackByClick}
-        total={this.countTotalFeedback}
-        positivePercentage={this.countPositiveFeedbackPercentage}
-      />
-
-      // <Box as="section" padding={3}>
-      //   <h2>Plese leave feedback</h2>
-      //   <FeedbackOptions
-      //     options={this.state}
-      //     onKlick={this.leaveFeedbackByClick}
-      //   />
-      //   <h3>Statistics</h3>
-      //   {this.countTotalFeedback() === 0 ? (
-      //     <p>"There is no feedback"</p>
-      //   ) : (
-      //     <Statistics
-      //       options={this.state}
-      //       total={this.countTotalFeedback}
-      //       positivePercentage={this.countPositiveFeedbackPercentage}
-      //     />
-      //   )}
-      // </Box>
+      <Box display="flex">
+        <Section title="Plese leave feedback">
+          <FeedbackOptions
+            options={this.state}
+            onKlick={this.leaveFeedbackByClick}
+          />
+          <StatTitle>Statistics</StatTitle>
+          {this.countTotalFeedback() === 0 ? (
+            <StatText>"There is no feedback"</StatText>
+          ) : (
+            <Statistics
+              options={this.state}
+              total={this.countTotalFeedback}
+              positivePercentage={this.countPositiveFeedbackPercentage}
+            />
+          )}
+        </Section>
+      </Box>
     );
   }
 }

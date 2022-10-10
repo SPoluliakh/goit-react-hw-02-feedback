@@ -1,25 +1,20 @@
 import PropTypes from 'prop-types';
-import Statistics from '../Statistic';
-import FeedbackOptions from '../FeedbackButtons';
 import { Box } from '../../Box';
 
-import { StatisticSectionTitle, TitleStatistic } from './Section.styled';
+import { StatisticSectionTitle } from './Section.styled';
 
-const Section = ({ title, options, onKlick, total, positivePercentage }) => {
+const Section = ({ title, children }) => {
   return (
-    <Box as="section" padding={3}>
+    <Box
+      as="section"
+      padding={3}
+      marginLeft="auto"
+      marginRight="auto"
+      marginTop={6}
+      border="normal"
+    >
       <StatisticSectionTitle>{title}</StatisticSectionTitle>
-      <FeedbackOptions options={options} onKlick={onKlick} />
-      <TitleStatistic>Statistics</TitleStatistic>
-      {total() === 0 ? (
-        <p>"There is no feedback"</p>
-      ) : (
-        <Statistics
-          options={options}
-          total={total}
-          positivePercentage={positivePercentage}
-        />
-      )}
+      {children}
     </Box>
   );
 };

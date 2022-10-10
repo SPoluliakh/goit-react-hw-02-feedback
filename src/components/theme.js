@@ -26,18 +26,19 @@ export const theme = Object.freeze({
   colors: {
     text: '#000',
     statsText: '#ff9',
-    background: '#fff',
+    background: '#aaa',
     primary: '#07c',
     secondary: '#30c',
     muted: '#f6f6f6',
-    profile: 'yellow',
+    neutral: 'yellow',
     profileList: 'rgba(255, 213, 0, 0.73)',
     statsTitle: '#00000099',
     online: 'green',
-    offline: 'red',
+    bad: 'red',
     tableBorderColor: 'rgb(0, 128, 255)',
     tableBgcHead: '#bcebdd',
     tableBgc: '#f8e391',
+    good: 'green',
   },
   radii: {
     none: '0',
@@ -46,7 +47,7 @@ export const theme = Object.freeze({
   },
   borders: {
     none: 'none',
-    normal: '1px dashed grey',
+    normal: '2px dashed grey',
     table: 'solid',
   },
   shadows: {
