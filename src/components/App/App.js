@@ -34,11 +34,12 @@ export class App extends Component {
   };
 
   render() {
+    const feedbackVariants = Object.keys(this.state);
     return (
       <Box display="flex">
         <Section title="Plese leave feedback">
           <FeedbackOptions
-            options={this.state}
+            options={feedbackVariants}
             onKlick={this.leaveFeedbackByClick}
           />
           <StatTitle>Statistics</StatTitle>
