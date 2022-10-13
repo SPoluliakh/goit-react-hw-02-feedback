@@ -19,7 +19,7 @@ const Statistics = ({ options, total, positivePercentage }) => {
         <StatItems>
           <StatItemsText>
             Positive feedback:
-            {total() === 0 ? 0 : positivePercentage(total)}%
+            {positivePercentage}%
           </StatItemsText>
         </StatItems>
       </StatList>
@@ -33,7 +33,7 @@ Statistics.propTypes = {
     bad: PropTypes.number.isRequired,
   }),
   total: PropTypes.func,
-  positivePercentage: PropTypes.func,
+  positivePercentage: PropTypes.number,
 };
 
 export default Statistics;
