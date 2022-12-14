@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Section from '../Section';
-import Statistics from '../Statistic';
 import FeedbackOptions from '../FeedbackButtons';
 import { Box } from '../../Box';
-import { StatTitle, StatText } from './FeedbackSection.styled';
+import { StatTitle } from './FeedbackSection.styled';
+import { StatisticSection } from 'components/StatisticSection/StatisticSection';
 
 export class FedbackSection extends Component {
   state = {
@@ -37,6 +37,7 @@ export class FedbackSection extends Component {
 
   render() {
     const feedbackVariants = Object.keys(this.state);
+    const totalFeedback = this.countTotalFeedback();
     return (
       <Box
         border="normal"
@@ -54,19 +55,13 @@ export class FedbackSection extends Component {
             onKlick={this.leaveFeedbackByClick}
           />
         </Section>
-
-        <Section>
-          <StatTitle>Statistics</StatTitle>
-          {this.countTotalFeedback() === 0 ? (
-            <StatText>"There is no feedback"</StatText>
-          ) : (
-            <Statistics
-              options={this.state}
-              total={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          )}
-        </Section>
+        <StatTitle>Statistics</StatTitle>
+        <StatisticSection
+          countTotalFeedback={totalFeedback}
+          options={this.state}
+          total={this.countTotalFeedback}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        />
       </Box>
     );
   }
