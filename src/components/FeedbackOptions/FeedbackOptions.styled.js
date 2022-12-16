@@ -4,6 +4,7 @@ export const ButtonsWrapp = styled.div`
   display: flex;
   gap: ${p => p.theme.space[3]}px;
   justify-content: center;
+  margin-bottom: ${props => props.theme.space[2]}px;
 `;
 
 export const FeedbackButtons = styled.button`

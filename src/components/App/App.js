@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Section from '../Section';
 import FeedbackOptions from '../FeedbackOptions';
 import { Box } from '../../Box';
-import { StatTitle, StatText } from './App.styled';
+import { StatText } from './App.styled';
 import Statistics from '../Statistic';
 
 export class App extends Component {
@@ -55,8 +55,7 @@ export class App extends Component {
             onKlick={this.leaveFeedbackByClick}
           />
         </Section>
-        <StatTitle>Statistics</StatTitle>
-        <Section>
+        <Section title="Statistics">
           {totalFeedback === 0 ? (
             <StatText>"There is no feedback"</StatText>
           ) : (
